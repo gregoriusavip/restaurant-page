@@ -32,3 +32,8 @@ footer {
     padding: 0.5rem;
     align-self: end;
 }
+
+/* header buttons active styling */
+header nav button.active {
+    background-color: #FFF5E4;
+}
