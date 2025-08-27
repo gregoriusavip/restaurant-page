@@ -5,4 +5,4 @@ import "./assets/css/main.css";
 import "./assets/css/header-footer.css";
 
 // Script imports
-import { headerButtons } from "./scripts/headerButtons";
+import { main as mainSection } from "./scripts/mainSection";

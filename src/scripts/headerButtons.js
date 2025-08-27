@@ -1,27 +1,24 @@
 export const headerButtons = (() => {
     const buttons = document.getElementById('header').getElementsByTagName('button');   // Get all header nav button elements
-
     let activeButton = buttons.namedItem('home');
-    activeButton.classList.add("active");   // Set home as the activated tab when the page is loaded
 
-    for (let button of buttons) {
-        button.addEventListener("click", function () {
-            // Add on click event handler for each header nav button
-            toggleActive(this);
-        });
-    }
+    const onLoad = (() => {
+        // Default state of the page on load
+        activeButton.classList.add("active");   // Set home as the activated tab
+    });
 
-    function getActiveButton() {
-        return activeButton;
-    }
-
-    function setActiveButton(button) {
-        activeButton = button;
+    function* buttonGenerator() {
+        for (let button of buttons) {
+            yield button;
+        }
     }
 
     function toggleActive(button) {
-        getActiveButton().classList.toggle("active");
+        // Toggle button active class
+        activeButton.classList.toggle("active");
         button.classList.toggle("active");
-        setActiveButton(button);
+        activeButton = button;
     };
+
+    return { activeButton, buttons, onLoad, buttonGenerator, toggleActive };
 })();
