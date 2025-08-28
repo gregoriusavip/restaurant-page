@@ -15,15 +15,20 @@ html {
     background-color: #F0F5F9;
 }
 
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
 body {
     min-height: 100vh;
     display: grid;
     grid-template-rows: min-content 1fr min-content;
-}
-
-main section {
-    padding: var(--section-padding-height) var(--section-padding-width);
-    display: none;
 }
 
 div.container {
@@ -36,6 +41,30 @@ div.container {
     gap: var(--container-gap);
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background-image: url(../images/wave-haikei.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+main section {
+    padding: var(--section-padding-height) var(--section-padding-width);
+    visibility: hidden;
+    position: absolute;
+    opacity: 0;
+    transform: translateX(-100%);
+
+    transition: transform 0.5s ease-in, opacity 0.5s ease-in;
+}
+
 main section.enabled {
-    display: block;
+    visibility: visible;
+    position: relative;
+    opacity: 100;
+    transform: translateX(0);
 }
