@@ -15,6 +15,10 @@ html {
     background-color: #F0F5F9;
 }
 
+.bold {
+    font-weight: bold;
+}
+
 p,
 h1,
 h2,
