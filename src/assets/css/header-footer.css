@@ -4,7 +4,11 @@
 
 header,
 footer {
-    background-color: #C9D6DF;
+    --default-background-color: #C9D6DF;
+    --default-font-color: #2C3333;
+
+    background-color: var(--default-background-color);
+    color: var(--default-font-color);
 }
 
 header nav,
@@ -14,18 +18,34 @@ footer {
     flex-wrap: wrap;
 }
 
+header nav {
+    column-gap: 1rem;
+}
+
+/* Header buttons styling */
+
 header nav button {
     all: unset;
     cursor: pointer;
     padding: 0.5rem;
+    transition: background-color 0.2s ease-in;
 }
 
 header nav button:focus {
     outline: revert;
 }
 
-header nav button:hover {
-    background-color: #FFF5E4;
+header nav button:hover,
+header nav button.active:hover {
+    /* Completely fill the button with the background color. Set font color to white for readable contrast */
+    background: none #183D3D;
+    color: white;
+}
+
+header nav button.active {
+    /* Create "underline" effect for activated tab. */
+    background: #183D3D;
+    background: linear-gradient(0deg, rgba(24, 61, 61, 1) 10%, rgba(201, 214, 223, 1) 10%);
 }
 
 footer {

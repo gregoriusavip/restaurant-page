@@ -23,6 +23,7 @@ body {
 
 main section {
     padding: var(--section-padding-height) var(--section-padding-width);
+    display: none;
 }
 
 div.container {
@@ -33,4 +34,8 @@ div.container {
     flex-direction: column;
     align-items: center;
     gap: var(--container-gap);
+}
+
+main section.enabled {
+    display: block;
 }
